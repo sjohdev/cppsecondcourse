@@ -123,7 +123,6 @@ int main() {
         wordEnd = pos - 1;
         // new word found: count length and add to memory
         wordLength = 1 + wordEnd - wordStart;
-        std::cout << wordLength << std::endl;
         if (wordLength > maxWordLength) {
             maxWordLength = wordLength;
             maxWordPos = wordStart;

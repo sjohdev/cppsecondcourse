@@ -12,20 +12,18 @@ void getHeadersFromFile(std::string fullFilePath) {
     size_t pos;
     bool isIncludeLine = false;
     if (sourceFile.is_open()) {
-        std::cout << "\nIncluded headers in '" << fullFilePath << "':" << std::endl;
         while (std::getline(sourceFile, cppLine)) {
-            //std::cout << "Line #" << ++lineCount << ": " << cppLine << std::endl;
             pos = cppLine.find("#include");
             isIncludeLine = (pos != std::string::npos);
             if (isIncludeLine) {
                 // #include line found: find header file name
                 headerName = cppLine.substr(9 + pos);
-                std::cout << headerName << std::endl;
+                std::cout << "- " << headerName << std::endl;
             }
         }
         sourceFile.close();
     } else {
-        std::cerr << "Error: could not open file" << std::endl;
+        std::cerr << "Error: could not open file\n" << std::endl;
     }
 }
 
@@ -38,10 +36,10 @@ int main() {
     bool isCppFile = false;
     if (std::filesystem::exists(sourcePath) && std::filesystem::is_directory(sourcePath)) {
         // for each .cpp file in folder, list all included header files:
-        std::cout << "Files in directory '" << dirName << "': " << std::endl;
+        std::cout << "Directory '" << dirName << "': " << std::endl;
         for (const auto& dirEntry : std::filesystem::directory_iterator(sourcePath)) {
             // Display filename
-            std::cout << "- " << dirEntry.path().filename().string() << std::endl;
+            std::cout << "\nHeaders included in " << dirEntry.path().filename().string() << ":" << std::endl;
             
             // Check if file is .cpp source file
             fileName = dirEntry.path().filename().string();
@@ -49,6 +47,8 @@ int main() {
             if (isCppFile) {
                 // .cpp source file found: read and find all #include statements:
                 getHeadersFromFile(dirEntry.path().string());
+            } else {
+                std::cout << "- Not a source file => No headers" << std::endl;
             }
         }
     } else {

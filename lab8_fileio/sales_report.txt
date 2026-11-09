@@ -1,0 +1,25 @@
+DAILY SALES REPORT
+===================
+Product:       Quantity: Price:    
+Laptop         5         $999.99
+Mouse          12        $29.99
+DAILY SALES REPORT
+===================
+Product:       Quantity: Price:    
+Laptop         5         $999.99
+Mouse          12        $29.99
+DAILY SALES REPORT
+===================
+Product:       Quantity: Price:    
+Laptop         5         $999.99
+Mouse          12        $29.99
+DAILY SALES REPORT
+===================
+Product:       Quantity: Price:    
+Laptop         5         $999.99
+Mouse          12        $29.99
+DAILY SALES REPORT
+===================
+Product:       Quantity: Price:    
+Laptop         5         $999.99
+Mouse          12        $29.99

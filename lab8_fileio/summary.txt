@@ -1,0 +1,7 @@
+Product: Widget A, # in stock: 25, Value: $387.65
+Product: Widget B, # in stock: 40, Value: $880.00
+Product: Widget C, # in stock: 15, Value: $131.28
+
+Total items: 80
+
+Total value: $1398.93

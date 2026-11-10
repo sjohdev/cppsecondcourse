@@ -1,0 +1,76 @@
+# C++ compiler bash commands using g++
+
+# -----------------------------------------------------------------
+# Common compilation commands:
+# -----------------------------------------------------------------
+# default compilation command: 
+g++ filename.cpp -o filename
+
+# compilation with warning messages: 
+g++ -Wall filename.cpp -o filename
+
+# compilation with extra warning messages: 
+g++ -Wall -Wextra filename.cpp -o filename
+
+# compilation with warning messages and using debug-mode: 
+g++ -Wall -g filename.cpp -o filename
+
+# -----------------------------------------------------------------
+# Compile with modules
+# -----------------------------------------------------------------
+g++ -std=c++20 -fmodules -c moduleName_impl.cpp
+g++ -std=c++20 -fmodules -c moduleName.cppm
+g++ -std=c++20 -fmodules -c mainName.cpp
+g++ moduleName.o moduleName_impl.o mainName.o -o progName
+
+# -----------------------------------------------------------------
+# Compile multi-file program: 
+# -----------------------------------------------------------------
+# 1. Compile all source files to .o files:
+g++ -c main.cpp file2.cpp file3.cpp file4.cpp
+
+# 2. Link all .o object files to create one executable: 
+g++ main.o file2.o file3.o file4.o -o program_name
+
+# 3. Run your program:
+./program_name
+
+# NOTE: you can also compile and link all source files into an 
+# executable with just one single line:
+g++ main.cpp file2.cpp file3.cpp file4.cpp -o program_name
+
+# -----------------------------------------------------------------
+# Compilation stages: 
+# -----------------------------------------------------------------
+# dump preprocessed code to textfile: 
+g++ -E filename.cpp > compilerPreprocessed.txt
+
+# create assembly code in .s file:
+g++ -S compilerStages.cpp
+
+# create .o machine-code file:
+g++ -c compilerStages.cpp -o compilerStages.o
+
+# Link included libraries and combine all code into an executable from machine-code (.o) files: 
+g++ compilerStages.o -o compilerStages
+
+
+# -----------------------------------------------------------------
+# Compiler optimizations: 
+# -----------------------------------------------------------------
+# No optimization:
+g++ program.cpp -o program_O0
+
+# Basic optimization:
+g++ -O1 program.cpp -o program_O1
+
+# Standard optimization:
+g++ -O2 program.cpp -o program_O2
+
+# Maximum optimization:
+g++ -O3 program.cpp -o program_O3
+
+# Optimize for minimum file size:
+g++ -Os program.cpp -o program_Os
+
+

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-//#include "nlohmann/json.hpp"
+#include "nlohmann/json.hpp"
 
 int main() {
     std::cout << "Configuration Manager v1.0" << std::endl;

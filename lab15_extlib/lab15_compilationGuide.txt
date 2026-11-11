@@ -1,0 +1,14 @@
+
+# Compilation command for including json external library header file: 
+# The command below assumes that you are currently in the root directory of lab15
+# and that you have cloned the json Github repository into this directory
+
+g++ -I./json/single_include main.cpp -o lab15
+
+###############################################
+# Compilation using cmake: 
+# The command below assumes that you are currently 
+# in the root directory of lab15
+
+cmake ./
+cmake --build ./

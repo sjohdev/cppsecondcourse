@@ -2,6 +2,8 @@
 #include <string>
 #include "nlohmann/json.hpp"
 
+using json = nlohmann::json;
+
 int main() {
     std::cout << "Configuration Manager v1.0" << std::endl;
     
@@ -16,6 +18,14 @@ int main() {
     std::cout << configData << std::endl;
     
     // JSON parsing here
-    
+    try {
+        json config = json::parse(configData);
+        std::cout << "App name: " << config["app_name"] << std::endl;
+        std::cout << "Version: " << config["version"] << std::endl;
+        std::cout << "Debug mode: " << config["debug_mode"] << std::endl;
+        std::cout << "Max connections: " << config["max_connections"] << std::endl;
+    } catch(const json::exception& e) {
+        std::cerr << "JSON parsing error: " << e.what() << std::endl;
+    }
     return 0;
 }
